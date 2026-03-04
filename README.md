@@ -1,4 +1,4 @@
-# **scrablbe2J**
+# **scrablbe2J :**
 projet scrabble - Mode 2 joueur
 # **Descrition** 
 Jeu simplifié du **Scrabble**: l'application affiche le score du mot saisi par l'utilisateur /[Régle du scrabble](https://fr.wikipedia.org/wiki/Scrabble)
@@ -12,3 +12,8 @@ Traitement des **demande de corections et d'évaluation**
 - la partie se termine lorsque les joueurs ont proposé chacun 10 mots. Le nom du gagnant est alors affiché par
 - l’application. Les 10 mots du joueur gagnant ainsi que le mot qui a rapporté le plus grand nombre de points sont
 - affichés également.
+# **Détail :**
+- Le projet Scrabble2Joueurs est un projet WPF contenant :
+- La fenêtre MainWindow : description de l’UI en XAML (MainWindow.xaml) et code-behind associé (MainWindow.cs)
+- La classe Joueur (Joueur.cs) : classe métier qui permet de manipuler les données d’un joueur
+- La classe Utilitaire (Utilitaire.cs) : classe statique qui contient les méthodes PointsLettre() et PointsMot()
