@@ -61,5 +61,21 @@ namespace Scrabble2Joueurs
             }
             return pts;
         }
+        /// <summary>
+        /// génere un 
+        /// </summary>
+        /// <returns></returns>
+        public static string RngLettre()
+        {
+            Random rnd = new Random();
+            string alphabet = "AAAAAAAAABBCCDDDEEEEEEEEEEEEEEEFFGGHHIIIIIIIIJKLMNNNNNNOOOOOOPPQRRRRRRSSSSSSTTTTTTUUUUUUVVWXYZ";
+
+            string lettre = "";
+            for (int i = 0; i < 7; i++)
+            {
+                lettre += alphabet.Substring(rnd.Next(0, alphabet.Length), 1);
+            }
+            return lettre;
+        }
     }
 }

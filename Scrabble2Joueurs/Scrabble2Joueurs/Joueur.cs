@@ -12,9 +12,9 @@ namespace Scrabble2Joueurs
     public class Joueur
     {
         #region attributs privés
-        private string nom;             // nom du joueur 
-        private List<string> lesMots;   // liste des mots proposés par le joueur
-        private int totalPoints;        // nombre total de points du joueur
+        private string nom;
+        private List<string> lesMots;
+        private int totalPoints;
         #endregion
 
         #region constructeur
@@ -25,7 +25,9 @@ namespace Scrabble2Joueurs
         /// <param name="unNom">nom du joueur</param>
         public Joueur(string unNom)
         {
-            //TODO
+            this.nom = unNom;
+            this.lesMots = new List<string>();
+            this.totalPoints = 0;
         }
         #endregion
 
@@ -37,7 +39,11 @@ namespace Scrabble2Joueurs
         /// <param name="unMot">mot proposé par le joueur</param>
         public void AjouterMot(string unMot)
         {
-            //TODO
+            if (!string.IsNullOrEmpty(unMot))
+            {
+                this.lesMots.Add(unMot);
+                this.totalPoints += CalculerPoints(unMot);
+            }
         }
 
         /// <summary>
@@ -46,8 +52,7 @@ namespace Scrabble2Joueurs
         /// <returns>nombre total de points du joueur</returns>
         public int GetTotalPoints()
         {
-            //TODO
-            return 0;
+            return this.totalPoints;
         }
 
         /// <summary>
@@ -56,17 +61,16 @@ namespace Scrabble2Joueurs
         /// <returns>nombre de mots du joueur</returns>
         public int GetNbMots()
         {
-            //TODO
-            return 0;
+            return this.lesMots.Count;
         }
+
         /// <summary>
         /// retourne la liste des mots du joueur
         /// </summary>
         /// <returns>liste de mots du joueur</returns>
         public List<string> GetLesMots()
         {
-            //TODO
-            return null;
+            return this.lesMots;
         }
 
         /// <summary>
@@ -76,8 +80,24 @@ namespace Scrabble2Joueurs
         /// <returns>mot qui a rapporté le plus grand nombre de points</returns>
         public string MotMeilleur()
         {
-            //TODO
-            return "";
+            if (lesMots.Count == 0) return "";
+
+            string meilleurMot = lesMots[0];
+            foreach (string mot in lesMots)
+            {
+                if (CalculerPoints(mot) > CalculerPoints(meilleurMot))
+                {
+                    meilleurMot = mot;
+                }
+            }
+            return meilleurMot;
+        }
+        /// <summary>
+        /// Méthode utilitaire pour simuler le calcul des points d'un mot
+        /// </summary>
+        private int CalculerPoints(string mot)
+        {
+            return Utilitaire.PointsMot(mot);
         }
         #endregion
     }

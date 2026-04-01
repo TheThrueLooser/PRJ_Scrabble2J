@@ -52,10 +52,10 @@
 
         <Grid x:Name="DebutPartie" Grid.Row="0" >
             <Label Content="Entrez le nom du Joueur 1" HorizontalAlignment="Left" Margin="100,15,0,0" VerticalAlignment="Top" />
-            <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
+            <TextBox x:Name="txtNomJ1" HorizontalAlignment="Left" Margin="300,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" TextChanged="txtNomJ1_TextChanged" />
             <Label Content="Entrez le nom du Joueur 2" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" />
-            <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" />
-            <Button x:Name="btnCommencer" Content="COMMENCER" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,35,0,0" />
+            <TextBox x:Name="txtNomJ2" HorizontalAlignment="Left" Margin="300,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="0,0,0,0" TextChanged="txtNomJ2_TextChanged" />
+            <Button x:Name="btnCommencer" Content="COMMENCER" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,35,0,0" Click="btnCommencer_Click" />
         </Grid>
         <Grid x:Name="Partie" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -63,18 +63,49 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <!-- Joueur 1 -->
-            <Border x:Name="BordureJoueur1" Style="{StaticResource StyleBorder}" Grid.Column="0">
-                <Grid x:Name="PartieJoueur1" Background="White"/>
+            <Border x:Name="BordureJoueur1" Style="{StaticResource StyleBorder}" Grid.Column="0" IsEnabled="False">
+                <Grid x:Name="PartieJoueur1" Background="Red">
+                    <Grid HorizontalAlignment="Left" Height="176" Margin="4,39,0,0" VerticalAlignment="Top" Width="384">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="21*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="74*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="169" Margin="4,35,0,0" VerticalAlignment="Top" Width="384" OpacityMask="#FF332D7F"/>
+                    <Button x:Name="btnValiderJ1" Content="valider" HorizontalAlignment="Left" Margin="278,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.372,5.305" Click="btnValiderJ1_Click" BorderBrush="#FF848484" Foreground="Black"/>
+                    <Label x:Name="rnglettreJ1" Content="" HorizontalAlignment="Left" Height="26" Margin="28,23,0,0" VerticalAlignment="Top" Width="341" Background="White"/>
+                    <TextBox x:Name="textboxJ1" HorizontalAlignment="Left" Height="26" Margin="95,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" TextChanged="TextBox_TextChanged"/>
+                    <Label x:Name="ptsJ1" Content="" HorizontalAlignment="Left" Height="31" Margin="41,204,0,0" VerticalAlignment="Top" Width="49" Background="White"/>
+
+                </Grid>
             </Border>
 
             <!-- Joueur 2 -->
-            <Border x:Name="BordureJoueur2" Style="{StaticResource StyleBorder}" Grid.Column="1">
-                <Grid x:Name="PartieJoueur2" Background="White"/>
+            <Border x:Name="BordureJoueur2" Style="{StaticResource StyleBorder}" Grid.Column="1" IsEnabled="False">
+                <Grid x:Name="PartieJoueur2" Background="Blue">
+                    <TextBox x:Name="textboxJ2" HorizontalAlignment="Left" Height="26" Margin="91,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" TextChanged="textbox_j2_TextChanged"/>
+                    <Button x:Name="btnValiderJ2" Content="valider" HorizontalAlignment="Left" Margin="278,204,0,0" VerticalAlignment="Top" Click="btnValiderJ2_Click" Foreground="#FF040000"/>
+                    <Label x:Name="rnglettreJ2" Content="" HorizontalAlignment="Left" Height="26" Margin="28,23,0,0" VerticalAlignment="Top" Width="341" Background="White"/>
+                    <Label x:Name="ptsJ2" Content="" HorizontalAlignment="Left" Height="30" Margin="41,202,0,0" VerticalAlignment="Top" Width="45" Background="White"/>
+                </Grid>
             </Border>
+            <Grid HorizontalAlignment="Left" Height="11" Margin="0,45,0,0" VerticalAlignment="Top" Width="4" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="87.967"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Label Content="Label"/>
+            </Grid>
 
         </Grid>
         <Grid x:Name="FinPartie" Grid.Row="2">
-            
+            <Grid/>
+
         </Grid>
     </Grid>
 </Window>
